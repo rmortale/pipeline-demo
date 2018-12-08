@@ -9,6 +9,7 @@ pipeline {
         stage('--test--') {
             steps {
                 echo "mvn test"
+                sh "mvn --batch-mode -V -e test deploy -Dsurefire.useFile=false"
             }
         }
         stage('--package--') {
