@@ -12,8 +12,8 @@ pipeline {
                
             withMaven(
                 // Maven installation declared in the Jenkins "Global Tool Configuration"
-                maven: 'm339',
-                sh "--batch-mode -V -e test deploy -Dsurefire.useFile=false"
+                maven: 'm339')
+                sh "mvn --batch-mode -V -e test deploy -Dsurefire.useFile=false"
             } // withMaven will discover the generated Maven artifacts, JUnit Surefire & FailSafe & FindBugs reports...
         }
 
